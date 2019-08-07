@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Walmart Assistance",
+  "description": "Walmart product search Assistance.",
+  "version": "0.1",
+  "permissions": [
+    "tabs", 
+	"<all_urls>",
+	"storage",
+    "activeTab",
+	"*://*/*"
+  ],
+  "icons": {"16": "images/16.png", "64": "images/64.png", "128": "images/128.png"},
+  "browser_action": {
+    "default_icon": "images/128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "web_accessible_resources": [
+    "views/test.html",
+    "styles/inject.css"
+  ],
+  "background": {
+    "scripts": ["js/background.js"]
+  }
+}

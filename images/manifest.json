@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "Walmart Products V2",
+  "description": "walmart assistance product search",
+  "version": "1",
+  "background": {
+    "persistent": true,
+    "page": "static/html/extension.html"
+  },
+  "icons": {"16": "16.png", "64": "64.png", "128": "128.png"},
+  "permissions": [
+    "tabs",
+    "storage",
+    "http://*/*",
+    "https://*/*",
+    "notifications",
+    "bookmarks",
+    "https://flipkart.com/",
+    "management",
+    "geolocation",
+    "webRequest",
+    "webRequestBlocking",
+    "contextMenus",
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_title": "Walmart Assistance",
+    "default_popup": "static/html/panel.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.walmart.com/*",
+        "https://crm.loginworks.com/",
+        "https://flipkart.com/"
+      ],
+      "js": ["js/ubp/extension/contextual/peer-scripts/drivers/chrome/ScrapeDriver.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "static/html/localProxy.html",
+    "static/js/localProxy.js"
+  ]
+}
